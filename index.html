@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ぴなくろん（Pinacron）</title>
-<meta name="description" content="ぴなくろん（Pinacron／ピナクロン）の公式サイト。ボカロ曲をつくっています。歌うのは看板娘の冠ナナ。">
+<meta name="description" content="ぴなくろん（Pinacron／ピナクロン）の公式サイト。ボカロ曲をつくっています。歌うのは冠ナナです。">
 <meta property="og:title" content="ぴなくろん（Pinacron）">
-<meta property="og:description" content="ボカロ曲をつくっています。歌うのは看板娘の冠ナナ。">
+<meta property="og:description" content="ボカロ曲をつくっています。歌うのは冠ナナです。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pinacron.com/">
 <meta name="theme-color" content="#fffbea">
@@ -29,7 +29,14 @@
     --lav:#cdbdff;
     --glass:rgba(255,255,255,.62);
     --line:linear-gradient(90deg,#ffb3dc,#9ee8ff,#cdbdff,#ffe27a);
+    --z:1;
   }
+  /* 大きい画面では全体を拡大する（中身が小さく見えないように） */
+  @media (min-width:1360px){:root{--z:1.1}}
+  @media (min-width:1600px){:root{--z:1.2}}
+  @media (min-width:1850px){:root{--z:1.28}}
+  @media (min-width:2300px){:root{--z:1.45}}
+  body{zoom:var(--z)}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
   body{
@@ -73,11 +80,11 @@
   nav.top .brand{font-weight:900;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:8px}
   nav.top .brand .pi{font-size:20px}
   nav.top ul{display:flex;gap:6px;list-style:none;margin:0 0 0 auto;padding:0;flex-wrap:wrap}
-  nav.top li a{display:block;text-decoration:none;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px}
+  nav.top li a{display:block;text-decoration:none;font-size:15px;font-weight:700;padding:6px 12px;border-radius:999px}
   nav.top li a:hover{background:rgba(155,227,207,.35)}
 
   /* ---------- ヒーロー ---------- */
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:56px 0 40px;min-height:calc(100vh - 56px)}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:56px 0 40px;min-height:calc((100vh - 56px) / var(--z))}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--mint-deep);
     background:rgba(155,227,207,.25);border:1px solid rgba(35,163,131,.25);padding:4px 14px;border-radius:999px}
   .logo{
@@ -93,7 +100,7 @@
   @keyframes shine{0%{background-position:150% 0}35%,100%{background-position:-60% 0}}
   .sub{font-size:clamp(17px,2.4vw,22px);letter-spacing:.14em;color:var(--soft);margin:0}
   .lead{margin:22px 0 0;font-size:17.5px;max-width:30em}
-  .lead b{background:linear-gradient(transparent 62%,rgba(255,226,122,.7) 62%);font-weight:900}
+  .lead b{white-space:nowrap;background:linear-gradient(transparent 62%,rgba(255,226,122,.7) 62%);font-weight:900}
   .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
   .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:900;padding:12px 22px;border-radius:999px;transition:transform .15s,box-shadow .15s}
   .btn.main{background:linear-gradient(90deg,var(--pine),#ffd25a);box-shadow:0 6px 18px rgba(217,165,20,.3)}
@@ -111,7 +118,7 @@
   .hud .row{display:flex;gap:14px;align-items:flex-end;margin-top:4px}
   .hud .row div{text-align:center}
   .hud b{display:block;font-family:"DotGothic16",monospace;font-weight:400;font-size:26px;line-height:1.1;color:var(--mint-deep)}
-  .hud small{display:block;font-size:10.5px;color:var(--soft)}
+  .hud small{display:block;font-size:11.5px;color:var(--soft)}
 
   /* ナナの立ち絵 */
   .stagebox{position:relative;justify-self:center;width:min(100%,460px)}
@@ -134,7 +141,7 @@
   .panel .bar{height:6px;border-radius:3px;margin:5px 0;background:linear-gradient(90deg,var(--mint),transparent)}
   .panel .bar.b2{width:70%;background:linear-gradient(90deg,var(--pink),transparent)}
   .panel .bar.b3{width:45%;background:linear-gradient(90deg,var(--lav),transparent)}
-  .panel .lb{font-weight:700;font-size:11.5px;color:var(--soft)}
+  .panel .lb{font-weight:700;font-size:12.5px;color:var(--soft)}
   @keyframes floaty{50%{transform:translateY(-10px)}}
   .scroll{display:block;text-align:center;font-size:12px;color:var(--soft);margin-top:10px;letter-spacing:.2em}
 
@@ -187,7 +194,7 @@
   .lk.yt .ic{background:#ffe0e0}
   .lk.nc .ic{background:#e9e6ff}
   .lk b{display:block;font-size:17px;font-weight:900}
-  .lk span{font-size:13px;color:var(--soft)}
+  .lk span{font-size:14px;color:var(--soft)}
 
   footer{position:relative;z-index:1;text-align:center;padding:70px 20px 120px}
   footer .thanks{font-weight:900;font-size:18px}
@@ -262,7 +269,7 @@
       <span class="eyebrow"><span class="en">VOCALOID PRODUCER</span>・ぼかろP</span>
       <h1 class="logo">ぴなくろん<span class="shine" aria-hidden="true">ぴなくろん</span></h1>
       <p class="sub en">Pinacron ／ ピナクロン</p>
-      <p class="lead">ボカロ曲をつくっています。<br>歌うのは、看板娘の<b>冠ナナ</b>と、その相棒のパイナップル、<b>ホーリーくん</b>です。</p>
+      <p class="lead">ボカロ曲をつくっています。<br>歌うのは<b>冠ナナ</b>です。いつも、ちょっと口の悪いパイナップルのぬいぐるみ、<b>ホーリーくん</b>を抱えています。</p>
       <div class="cta">
         <a class="btn main" href="#chara">👑 ナナに会う</a>
         <a class="btn ghost" href="#links">▶ 動画とSNS</a>
@@ -291,7 +298,7 @@
   <section class="sec" id="about">
     <div class="head"><h2>ぴなくろんについて</h2><span class="en">ABOUT</span></div>
     <div class="glass">
-      <p style="margin:0">ぴなくろんは、ボカロ曲をつくってニコニコ動画とYouTubeに投稿しているボカロPです。名前は、パイナップルと、決まった時刻に動くコンピューターの仕組み「cron（クロン）」を合わせたものです。曲を歌うのは、看板娘の冠ナナ。ときどき、相棒のホーリーくんが横から口を出します。</p>
+      <p style="margin:0">ぴなくろんは、ボカロ曲をつくってニコニコ動画とYouTubeに投稿しているボカロPです。パイナップルが大好物です。</p><p style="margin:.8em 0 0">ぴなくろんの曲を歌っているのは、冠ナナ。いつも抱えているパイナップルのぬいぐるみは、ホーリーくんといいます。ちょっと口が悪いのは、どうか大目に見てあげてください。</p>
     </div>
   </section>
 
@@ -305,9 +312,7 @@
           <span class="ruby">かんむり ナナ ／ Kanmuri Nana</span>
           <dl class="prof">
             <dt>担当</dt><dd>うた</dd>
-            <dt>相棒</dt><dd>ホーリーくん</dd>
-            <dt>性格</dt><dd>口数は少なめ。静かだけれど、歌うときは別人のように楽しそう</dd>
-            <dt>名前</dt><dd>「冠」はパイナップルのてっぺんの葉っぱ、「ナナ」はパイナップルの外国語名「アナナス」から</dd>
+            <dt>いつも一緒</dt><dd>ホーリーくん</dd>
           </dl>
           <div class="quote">「……聴いてくれると、うれしい。」</div>
         </div>
@@ -322,10 +327,9 @@
           </div>
         </div>
         <dl class="prof">
-          <dt>正体</dt><dd>なぜかしゃべる、パイナップルのぬいぐるみ</dd>
+          <dt>正体</dt><dd>ナナが抱えているパイナップルのぬいぐるみ</dd>
           <dt>担当</dt><dd>ナナのマネージャー（自称）</dd>
-          <dt>特徴</dt><dd>サングラスは絶対に外さない。マイクも離さない</dd>
-          <dt>名前</dt><dd>パイナップルの中国語名「鳳梨（ほうり）」から</dd>
+          <dt>特徴</dt><dd>サングラスの下は、まだ誰も見たことがない</dd>
         </dl>
         <div class="quote">「おうコラ。ナナに近づきたけりゃ、まず曲を聴いてからにしな。」</div>
       </article>
@@ -387,12 +391,12 @@
   // ホーリーくんのひとこと
   var lines=[
     "おうコラ、よく来たな。ナナの歌、聴いてけや 🕶️",
-    "このサングラス？　外さねえよ。素顔はナナにしか見せねえ",
+    "このサングラスが気になるか？　十年早えよ",
     "オレはホーリー。ナナのマネージャー……みてえなもんだ",
     "動画はまだねえ。だが、そのうちすげえのが来る。たぶんな",
     "パイナップルだからってナメんなよ。けっこう酸っぱいぜ",
     "ブックマークしとけよ。……いや、別にしなくてもいいけどよ",
-    "ナナは無口だが、歌うと止まらねえんだ。覚えとけ"
+    "ナナの歌、もう聴いたか？　まだなら損してるぜ"
   ];
   var i=0, bubble=document.getElementById("bubble"), line=document.getElementById("line"), timer=null;
   function say(){
